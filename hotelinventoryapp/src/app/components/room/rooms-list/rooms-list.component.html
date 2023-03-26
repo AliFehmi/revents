@@ -1,0 +1,26 @@
+Rooms List
+    <table class="table">
+        <tr>
+            <th>Room Type</th>
+            <th>Amenities</th>
+            <th>Price</th>
+            <th>Photos</th>
+            <th>Checkin Time</th>
+            <th>CheckoutTime</th>
+            <th>Room Number</th>
+        </tr>
+        <tr *ngFor="let room of rooms">
+            <td>{{room.roomType | uppercase}}</td>
+            <td>{{room.amenities | lowercase}}</td>
+            <td>{{room.price}}</td>
+            <td>{{room.photos}}</td>
+            <td>{{room.checkinTime | date}}</td>
+            <td>{{room.checkoutTime | date}}</td>
+            <td>{{room.roomNumber}}</td>
+            <td>
+                <button (click)="selectRoom(room)" class="btn btn-primary">
+                    Select
+                </button>
+            </td>
+        </tr>
+    </table>
