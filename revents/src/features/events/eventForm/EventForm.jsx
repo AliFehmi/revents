@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Button, Form, Header, Segment } from "semantic-ui-react";
+import { Button, Container, Form, Header, Segment } from "semantic-ui-react";
 import cuid from "cuid";
+import { Link } from "react-router-dom";
 export default function EventForm({
   setFormOpen,
-  setEvents,
   createEvent,
   selectedEvent,
   updateEvent,
@@ -34,6 +34,7 @@ export default function EventForm({
     setFormOpen(false);
   }
   return (
+    <Container className="main">
     <Segment clearing>
       <Header
         content={selectedEvent ? "Edit Event" : "Create New Event"}
@@ -96,11 +97,12 @@ export default function EventForm({
         <Button content='Submit' type='submit' floated='right' positive />
         <Button
           content='Cancel'
-          onClick={() => setFormOpen(false)}
+          as={Link} to='/events'
           type='submit'
           floated='right'
         />
       </Form>
     </Segment>
+    </Container>
   );
 }
